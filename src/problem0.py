@@ -206,7 +206,10 @@ def problem0a(n):
     #        Simply try a few examples to convince yourself of this.
     #        ASK FOR HELP if you do not understand this hint.
     # -------------------------------------------------------------------------
-
+    #7/2  = 3.5
+    #7//2 = 3
+    #7%2 = 1
+    #if x%2 == 0: (just to check if it's even)
 
 def run_test_problem0b():
     """ Tests the   problem0b   function. """
@@ -271,7 +274,9 @@ def problem0b(n):
     #    **  use (call) the   is_prime   function that is DEFINED ABOVE.
     ###########################################################################
     # ------------------------------------------------------------------
-
+    for ...
+        if is_prime(...):
+        lakdjfk
 
 def run_test_problem0c():
     """ Tests the   problem0c  function. """
@@ -338,7 +343,7 @@ def problem0c(circle, n, window):
     #   renders with a half-second pause after rendering.
     ###########################################################################
     # -------------------------------------------------------------------------
-
+    window.render(0)
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
