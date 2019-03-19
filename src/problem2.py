@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Ram.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -32,7 +32,7 @@ import rosegraphics as rg
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_problem2a()
-    run_test_problem2b()
+   # run_test_problem2b()
 
 
 def run_test_problem2a():
@@ -48,12 +48,14 @@ def run_test_problem2a():
     title += 'red to blue, then blank to green'
     window = rg.RoseWindow(450, 250, title)
 
+
     circle = rg.Circle(rg.Point(100, 50), 30)
     rectangle = rg.Rectangle(rg.Point(100, 120), rg.Point(200, 170))
     rectangle.outline_color = 'blue'
     circle.fill_color = 'red'
     problem2a(circle, rectangle, window)
     window.continue_on_mouse_click()
+    window.render()
 
     circle = rg.Circle(rg.Point(300, 100), 50)
     rectangle = rg.Rectangle(rg.Point(300, 170), rg.Point(400, 120))
@@ -111,6 +113,20 @@ def problem2a(circle, rectangle, window):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
+
+    rg.Circle(circle.center,circle.radius)
+    rg.Rectangle(rectangle.corner_1,rectangle.corner_2)
+    line=rg.Line(rectangle._upper_right_corner,rectangle._lower_left_corner)
+   # line.arrow()
+    circle.fill_color=rectangle.outline_color
+
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    line.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+
+
 
 def run_test_problem2b():
     """ Tests the  problem2b   function. """
@@ -183,6 +199,7 @@ def problem2b(rect, n, delta, win):
     #    TIME ESTIMATE:   15 to 25 minutes.
     # -------------------------------------------------------------------------
 
+    rg.Rectangle(rg.Point(), )
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
