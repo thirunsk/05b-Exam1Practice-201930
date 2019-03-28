@@ -32,7 +32,7 @@ import rosegraphics as rg
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_problem2a()
-   # run_test_problem2b()
+    run_test_problem2b()
 
 
 def run_test_problem2a():
@@ -114,17 +114,22 @@ def problem2a(circle, rectangle, window):
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
 
-    rg.Circle(circle.center,circle.radius)
-    rg.Rectangle(rectangle.corner_1,rectangle.corner_2)
-    line=rg.Line(rectangle._upper_right_corner,rectangle._lower_left_corner)
-   # line.arrow()
-    circle.fill_color=rectangle.outline_color
+    circle1=rg.Circle(circle.center,circle.radius)
+
 
     circle.attach_to(window)
     rectangle.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+
+    line=rg.Line(rectangle.get_upper_right_corner(),rectangle.get_lower_left_corner())
     line.attach_to(window)
     window.render()
     window.continue_on_mouse_click()
+
+    circle.fill_color=rectangle.outline_color
+    circle.attach_to(window)
+    window.render()
 
 
 
@@ -196,10 +201,17 @@ def problem2b(rect, n, delta, win):
     # -------------------------------------------------------------------------
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
-    #    TIME ESTIMATE:   15 to 25 minutes.
     # -------------------------------------------------------------------------
 
-    rg.Rectangle(rg.Point(), )
+    rect.attach_to(win)
+    for k in range(n):
+        topx = rect.get_center().x - delta * k - rect.get_width() / 2
+        topy = rect.get_center().y - delta * k - rect.get_height() / 2
+        bottomx = rect.get_center().x + delta * k + rect.get_width() / 2
+        bottomy = rect.get_center().y + delta * k + rect.get_height() / 2
+        rect1 = rg.Rectangle(rg.Point(topx, topy), rg.Point(bottomx, bottomy))
+        rect1.attach_to(win)
+    win.render()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
